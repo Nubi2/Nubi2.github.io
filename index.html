@@ -11,6 +11,7 @@
             margin: 0;     /* Remove default margin */
             padding: 0;    /* Remove default padding */
             overflow: hidden; /* Prevent extra scrolling */
+            position: relative; /* For absolute positioning of elements */
         }
 
         /* Apply the scrolling background with fixed attachment */
@@ -32,14 +33,14 @@
             }
         }
 
-        /* Dim overlay for background */
+        /* Dark gray overlay for background */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);  /* Black overlay with transparency */
+            background-color: rgba(64, 64, 64, 0.7);  /* Dark gray overlay with transparency */
             pointer-events: none; /* Prevents blocking interactions */
         }
 
@@ -51,12 +52,51 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent dark background */
+            background-color: rgba(64, 64, 64, 0.3); /* Dark gray background with transparency */
             z-index: -1; /* Ensures overlay stays behind content */
+        }
+
+        /* Center line */
+        .center-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px; /* Line thickness */
+            height: 100%;
+            background-color: black;
+            transform: translateX(-50%);  /* To center the line */
+        }
+
+        /* Left line */
+        .left-line {
+            position: absolute;
+            top: 0;
+            left: calc(50% - 100px); /* 100px to the left of center */
+            width: 2px;
+            height: 100%;
+            background-color: black;
+        }
+
+        /* Right line */
+        .right-line {
+            position: absolute;
+            top: 0;
+            left: calc(50% + 100px); /* 100px to the right of center */
+            width: 2px;
+            height: 100%;
+            background-color: black;
         }
     </style>
 </head>
 <body>
+    <!-- Dark gray overlay for the background -->
+    <div class="overlay"></div>
+
+    <!-- Add vertical lines -->
+    <div class="center-line"></div>
+    <div class="left-line"></div>
+    <div class="right-line"></div>
+
     <!-- Optional: Add content here, such as text, images, etc. -->
 </body>
 </html>
